@@ -1,0 +1,36 @@
+ 	
+	// Gets formatted date and puts in TextBox
+	public void TextBoxDate()
+        {
+            string month = datePicker.SelectedDate.Value.ToString("MMMM");
+            int day = datePicker.SelectedDate.Value.Day;
+            string year = datePicker.SelectedDate.Value.ToString("yyyy");
+
+            textBox.Text = month + " " + getDaySuffix(day) + ", " + year;
+        }
+
+        private string getDaySuffix(int day)
+        {
+            switch (day)
+            {
+                case 1:
+                case 21:
+                case 31:
+                        return day + "st";
+                case 2:
+                case 22:
+                    return day + "nd";
+                case 3:
+                case 23:
+                    return day + "rd";
+                default:
+                    return day + "th";
+            }
+        }
+
+
+	
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            TextBoxDate();
+        }
